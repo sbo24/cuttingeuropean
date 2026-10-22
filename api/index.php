@@ -18,6 +18,9 @@ set_exception_handler(function($e) {
 $_ENV['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['APP_STORAGE'] = '/tmp/storage';
 
+// Also redirect bootstrap/cache to /tmp
+$_ENV['APP_BASE_PATH'] = dirname(__DIR__);
+
 // Create necessary directories in /tmp
 $dirs = [
     '/tmp/storage',
@@ -36,6 +39,17 @@ $dirs = [
 foreach ($dirs as $dir) {
     if (!is_dir($dir)) {
         mkdir($dir, 0755, true);
+    }
+}
+
+// Copy bootstrap cache files to /tmp so Laravel can use them
+$bootstrapCacheDir = dirname(__DIR__) . '/bootstrap/cache';
+if (is_dir($bootstrapCacheDir)) {
+    foreach (glob($bootstrapCacheDir . '/*.php') as $file) {
+        $dest = '/tmp/bootstrap/cache/' . basename($file);
+        if (!file_exists($dest)) {
+            copy($file, $dest);
+        }
     }
 }
 
