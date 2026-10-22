@@ -1,0 +1,2 @@
+<?php echo $__env->make('catalog.ocasion', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+<?php /**PATH C:\Users\sbarrajon\Desktop\DESARROLLO\cuttingeuropean\resources\views\ocasion.blade.php ENDPATH**/ ?>
