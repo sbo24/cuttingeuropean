@@ -1,7 +1,11 @@
 <?php
 
-// Redirect all requests to Laravel's public/index.php
-// This is the Vercel serverless entry point for Laravel
+// Vercel serverless entry point for Laravel
+// CRITICAL: Set PHP temp dir to /tmp (Vercel's only writable location)
+// This fixes tempnam() E_NOTICE + UnexpectedValueException chain in BladeCompiler
+putenv('TMPDIR=/tmp');
+ini_set('sys_temp_dir', '/tmp');
+ini_set('upload_tmp_dir', '/tmp');
 
 // Catch ALL errors and output them for debugging
 set_exception_handler(function($e) {
@@ -17,9 +21,6 @@ set_exception_handler(function($e) {
 // Fix writable paths for Vercel's read-only filesystem
 $_ENV['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['APP_STORAGE'] = '/tmp/storage';
-
-// Also redirect bootstrap/cache to /tmp
-$_ENV['APP_BASE_PATH'] = dirname(__DIR__);
 
 // Create necessary directories in /tmp
 $dirs = [
@@ -47,6 +48,17 @@ $bootstrapCacheDir = dirname(__DIR__) . '/bootstrap/cache';
 if (is_dir($bootstrapCacheDir)) {
     foreach (glob($bootstrapCacheDir . '/*.php') as $file) {
         $dest = '/tmp/bootstrap/cache/' . basename($file);
+        if (!file_exists($dest)) {
+            copy($file, $dest);
+        }
+    }
+}
+
+// Copy pre-compiled Blade views to /tmp so BladeCompiler finds them already compiled
+$viewsDir = dirname(__DIR__) . '/storage/framework/views';
+if (is_dir($viewsDir)) {
+    foreach (glob($viewsDir . '/*.php') as $file) {
+        $dest = '/tmp/storage/framework/views/' . basename($file);
         if (!file_exists($dest)) {
             copy($file, $dest);
         }
