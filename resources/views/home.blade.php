@@ -645,6 +645,267 @@
     </div>
 </section>
 
+<!-- ─── INTERACTIVE MACHINE SELECTOR / ADVISOR ────────────────── -->
+<section class="py-24 sm:py-32 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800"
+         x-data="{
+             material: 'perfiles',
+             cadence: 'serie',
+             diameter: 'medium',
+             getRecommendation() {
+                 if (this.material === 'aluminio') {
+                     return {
+                         name: 'Línea de Corte o Tronzadora Doble Cabezal para Aluminio',
+                         ref: 'MEP Cobra / Velox',
+                         type: 'Disco Widia TCT (Carburo)',
+                         reason: 'Corte a alta velocidad (hasta 3.000 RPM) con micro-lubricación y giro angular hasta 45°/90° sin rebabas ni deformación de perfilería lacada o extrusionada.',
+                         speed: 'Ultra Rápido (< 5 seg / corte)',
+                         finish: 'Espejo / Sin rebaba',
+                         waste: 'Mínimo en viruta',
+                         route: '{{ route('catalog.aluminio-pvc') }}',
+                         tag: 'Recomendada para Carpintería & Fachadas'
+                     };
+                 }
+                 if (this.material === 'tubos' && this.cadence !== 'taller') {
+                     return {
+                         name: 'Sierra de Disco Rápida Automática MEP Tiger / Velocex',
+                         ref: 'TIGER 372 CNC / VELOCEX',
+                         type: 'Sierra Circular HSS / Metal Duro',
+                         reason: 'La solución óptima para tubos de pared fina y perfiles en grandes series. Ciclos automáticos ultracortos con alimentador CNC continuo y desbarbado integrado.',
+                         speed: '3 a 8 segundos por ciclo',
+                         finish: 'Corte limpio perpendicular',
+                         waste: 'Disco de 2.5 mm',
+                         route: '{{ route('catalog.sierras-disco') }}',
+                         tag: 'Máxima Cadencia en Serie'
+                     };
+                 }
+                 if (this.material === 'macizos' || this.diameter === 'large') {
+                     return {
+                         name: 'Sierra de Cinta Automática MEP Shark CNC de Doble Columna',
+                         ref: 'SHARK 452 / 652 SXI EVO',
+                         type: 'Sierra de Cinta Bimetal / Carburo',
+                         reason: 'Estructura rígida de fundición para absorción de vibraciones en cortes de gran sección. Control electrohidráulico y velocidad de cinta inverter para aceros aleados e inox.',
+                         speed: 'Corte frío constante',
+                         finish: 'Tolerancia ±0.15 mm',
+                         waste: 'Ancho de corte 1.1 mm (Mínima merma)',
+                         route: '{{ route('catalog.sierras-cinta') }}',
+                         tag: 'Alta Capacidad & Aceros Especiales'
+                     };
+                 }
+                 if (this.cadence === 'taller') {
+                     return {
+                         name: 'Sierra de Cinta Manual o Semiautomática MEP Shark',
+                         ref: 'SHARK 281 / 282 CCS',
+                         type: 'Sierra de Cinta Versátil',
+                         reason: 'Flexibilidad total para cambios frecuentes de perfil, corte a inglete continuo hasta 60° y fácil manejo con inversión contenida y fiabilidad contrastada.',
+                         speed: 'Adaptado a piezas unitarias',
+                         finish: 'Calidad industrial garantizada',
+                         waste: 'Hoja bimetálica M42 estándar',
+                         route: '{{ route('catalog.sierras-cinta') }}',
+                         tag: 'Polivalencia para Taller Mecánico'
+                     };
+                 }
+                 return {
+                     name: 'Sierra de Cinta Automática MEP Shark NC 5.0 con CNC',
+                     ref: 'SHARK 332-1 NC 5.0',
+                     type: 'Sierra de Cinta Electrohidráulica',
+                     reason: 'El estándar industrial por excelencia: corte automático programable en series mixtas, doble ingletador y alimentador automático paso a paso.',
+                     speed: 'Ciclo continuo desatendido',
+                     finish: 'Acabado homogéneo certificado',
+                     waste: '1.2 mm de sangría',
+                     route: '{{ route('catalog.sierras-cinta') }}',
+                     tag: 'El estándar industrial más vendido'
+                 };
+             }
+         }">
+
+    <!-- Ambient Glows -->
+    <div class="absolute -top-32 left-1/3 w-[600px] h-[350px] bg-blue-600/10 blur-[130px] rounded-full pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                <span>Configurador Técnico Interactivo</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
+                ¿Qué máquina necesita exactamente su taller?
+            </h2>
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                Seleccione las variables de su proceso productivo y nuestro recomendador técnico le indicará al instante la tecnología de corte más rentable.
+            </p>
+        </div>
+
+        <!-- 2-Column Selector Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            <!-- Left: Interactive Selectors -->
+            <div class="lg:col-span-7 space-y-8 bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-sm">
+                
+                <!-- Variable 1: Material -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center justify-between">
+                        <span>1. Material Principal a Cortar</span>
+                        <span class="text-blue-400 font-normal lowercase">Paso 1 de 3</span>
+                    </label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <button type="button" 
+                                @click="material = 'perfiles'" 
+                                class="p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between h-24"
+                                :class="material === 'perfiles' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block">Perfiles & Vigas</span>
+                            <span class="text-[10px] opacity-75 leading-tight">Estructural, IPE, UPN</span>
+                        </button>
+                        <button type="button" 
+                                @click="material = 'macizos'" 
+                                class="p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between h-24"
+                                :class="material === 'macizos' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block">Macizos & Inox</span>
+                            <span class="text-[10px] opacity-75 leading-tight">F-114, F-125, 316</span>
+                        </button>
+                        <button type="button" 
+                                @click="material = 'tubos'" 
+                                class="p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between h-24"
+                                :class="material === 'tubos' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block">Tubos Redondos</span>
+                            <span class="text-[10px] opacity-75 leading-tight">Pared delgada/media</span>
+                        </button>
+                        <button type="button" 
+                                @click="material = 'aluminio'" 
+                                class="p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between h-24"
+                                :class="material === 'aluminio' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block">Aluminio / PVC</span>
+                            <span class="text-[10px] opacity-75 leading-tight">No férricos y perfiles</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Variable 2: Cadence / Volume -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center justify-between">
+                        <span>2. Volumen y Frecuencia de Corte</span>
+                        <span class="text-blue-400 font-normal lowercase">Paso 2 de 3</span>
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <button type="button" 
+                                @click="cadence = 'taller'" 
+                                class="p-4 rounded-2xl border text-left transition-all cursor-pointer"
+                                :class="cadence === 'taller' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block mb-1">Mantenimiento / Taller</span>
+                            <p class="text-[11px] opacity-75 leading-snug">Cortes unitarios o pequeños lotes bajo demanda manual.</p>
+                        </button>
+                        <button type="button" 
+                                @click="cadence = 'serie'" 
+                                class="p-4 rounded-2xl border text-left transition-all cursor-pointer"
+                                :class="cadence === 'serie' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block mb-1">Producción Media</span>
+                            <p class="text-[11px] opacity-75 leading-snug">Series regulares con ciclos semiautomáticos o NC.</p>
+                        </button>
+                        <button type="button" 
+                                @click="cadence = 'continuo'" 
+                                class="p-4 rounded-2xl border text-left transition-all cursor-pointer"
+                                :class="cadence === 'continuo' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-xs font-bold block mb-1">Ciclo Continuo 24/7</span>
+                            <p class="text-[11px] opacity-75 leading-snug">Alimentador automático para trabajo desatendido intensivo.</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Variable 3: Section / Diameter -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center justify-between">
+                        <span>3. Diámetro o Sección Máxima</span>
+                        <span class="text-blue-400 font-normal lowercase">Paso 3 de 3</span>
+                    </label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" 
+                                @click="diameter = 'small'" 
+                                class="p-3.5 rounded-2xl border text-center transition-all cursor-pointer"
+                                :class="diameter === 'small' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-sm font-bold block">&lt; Ø 150 mm</span>
+                            <span class="text-[10px] opacity-75">Piezas compactas</span>
+                        </button>
+                        <button type="button" 
+                                @click="diameter = 'medium'" 
+                                class="p-3.5 rounded-2xl border text-center transition-all cursor-pointer"
+                                :class="diameter === 'medium' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-sm font-bold block">Ø 150 - 330 mm</span>
+                            <span class="text-[10px] opacity-75">Gama media estándar</span>
+                        </button>
+                        <button type="button" 
+                                @click="diameter = 'large'" 
+                                class="p-3.5 rounded-2xl border text-center transition-all cursor-pointer"
+                                :class="diameter === 'large' ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-600/30' : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:border-slate-600'">
+                            <span class="text-sm font-bold block">&gt; Ø 330 mm</span>
+                            <span class="text-[10px] opacity-75">Gran sección / vigas</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: Dynamic Live Recommendation Card -->
+            <div class="lg:col-span-5 sticky top-28">
+                <div class="bg-gradient-to-br from-slate-900 to-slate-850 border border-blue-500/30 rounded-3xl p-7 sm:p-8 shadow-2xl relative overflow-hidden">
+                    
+                    <!-- Decorative subtle accent -->
+                    <div class="absolute -top-16 -right-16 w-40 h-40 bg-blue-500/20 blur-2xl rounded-full"></div>
+
+                    <!-- Badge -->
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-[11px] font-bold border border-blue-400/30">
+                            <svg class="w-3.5 h-3.5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span x-text="getRecommendation().tag"></span>
+                        </span>
+                        <span class="text-[11px] text-slate-400 font-mono" x-text="getRecommendation().ref"></span>
+                    </div>
+
+                    <h3 class="text-2xl font-bold font-display text-white mb-2 leading-snug" x-text="getRecommendation().name"></h3>
+                    <p class="text-xs text-blue-400 font-semibold mb-4" x-text="'Herramienta de corte: ' + getRecommendation().type"></p>
+
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 border-b border-slate-800 pb-5" x-text="getRecommendation().reason"></p>
+
+                    <!-- Technical Specs Grid -->
+                    <div class="grid grid-cols-3 gap-2.5 mb-7 text-center">
+                        <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-3">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">Velocidad</span>
+                            <span class="text-xs font-bold text-white block" x-text="getRecommendation().speed"></span>
+                        </div>
+                        <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-3">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">Acabado</span>
+                            <span class="text-xs font-bold text-white block" x-text="getRecommendation().finish"></span>
+                        </div>
+                        <div class="bg-slate-800/70 border border-slate-700/80 rounded-xl p-3">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">Merma</span>
+                            <span class="text-xs font-bold text-emerald-400 block" x-text="getRecommendation().waste"></span>
+                        </div>
+                    </div>
+
+                    <!-- Direct Actions -->
+                    <div class="space-y-3">
+                        <button type="button" 
+                                @click="$dispatch('open-quote-modal', { product: getRecommendation().name, ref: getRecommendation().ref })"
+                                class="w-full py-4 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition-all cursor-pointer">
+                            <span>Solicitar Oferta Técnica</span>
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                        <a :href="getRecommendation().route" 
+                           class="w-full py-3 px-6 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs text-center block border border-slate-700 transition-colors">
+                            Explorar Gama de Esta Categoría
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 <!-- ─── MEP PARTNERSHIP SHOWCASE ─────────────────────────── -->
 <section class="py-24 sm:py-32 bg-slate-900 text-white relative overflow-hidden border-t border-b border-slate-800 fade-up">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
@@ -696,6 +957,271 @@
             </div>
 
         </div>
+    </div>
+</section>
+
+<!-- ─── INDUSTRY SECTORS & APPLICATIONS ────────────────────────── -->
+<section class="py-24 sm:py-32 bg-white border-b border-slate-200 fade-up" x-data="{ activeSector: 0 }">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div class="space-y-3">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block">Sectores de Aplicación</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
+                    Ingeniería adaptada a cada exigencia industrial.
+                </h2>
+                <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+                    Nuestras máquinas operan en las líneas de producción más exigentes de España, garantizando tolerancias críticas y retorno de inversión acelerado.
+                </p>
+            </div>
+            
+            <!-- Sector Selector Navigation Pills -->
+            <div class="flex flex-wrap items-center gap-2 p-1.5 bg-slate-100 rounded-2xl border border-slate-200">
+                <template x-for="(sec, idx) in [
+                    { title: 'Estructuras & Vigas', icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
+                    { title: 'Automoción & Tubo', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+                    { title: 'Calderería & Macizos', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+                    { title: 'Aluminio & Fachadas', icon: 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z' }
+                ]" :key="idx">
+                    <button type="button" 
+                            @click="activeSector = idx"
+                            class="px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-2"
+                            :class="activeSector === idx ? 'bg-white text-blue-600 shadow-sm border border-slate-200/80' : 'text-slate-600 hover:text-slate-900'">
+                        <span x-text="sec.title"></span>
+                    </button>
+                </template>
+            </div>
+        </div>
+
+        <!-- Dynamic Sector Showcase Card -->
+        <div class="bg-slate-50 border border-slate-200/90 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+            
+            <!-- Sector 0: Estructuras & Vigas -->
+            <div x-show="activeSector === 0" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-3" x-transition:enter-end="opacity-100 translate-y-0" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold">
+                        Estructuras Metálicas & Prefabricados
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 leading-tight">
+                        Corte de vigas IPE, HEB y celosías con inglete continuo de 60° a izquierda y derecha.
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        En la construcción metálica, cada milímetro de desviación en el corte a inglete encarece el posterior armado y soldadura. Las sierras MEP incorporan bancadas sobredimensionadas con rotación angular micrométrica y apriete hidráulico sin deformación.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Capacidad Máx</span>
+                            <span class="text-base font-extrabold text-slate-900 mt-1 block">Hasta 650 mm</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Inglete Dinámico</span>
+                            <span class="text-base font-extrabold text-blue-600 mt-1 block">-60° / 0° / +60°</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Ahorro Soldadura</span>
+                            <span class="text-base font-extrabold text-emerald-600 mt-1 block">Cero holguras</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="{{ route('catalog.sierras-cinta') }}" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors">
+                            Ver Sierras para Estructuras
+                        </a>
+                        <button type="button" @click="$dispatch('open-quote-modal', { product: 'Sierra para Estructuras y Vigas', ref: 'SECTOR-ESTRUCTURAS' })" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200 transition-colors cursor-pointer">
+                            Consultar Estudio de Corte
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Máquina Destacada en Sector</span>
+                    <h4 class="text-lg font-bold text-slate-900">MEP SHARK 452 / 652 SXI EVO</h4>
+                    <p class="text-xs text-slate-500">Sierra semiautomática electrohidráulica para grandes perfiles estructurales.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2 text-xs text-slate-700">
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Desarrollo de cinta</span>
+                            <span class="font-bold">4500 x 34 x 1.1 mm</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Capacidad corte 0°</span>
+                            <span class="font-bold">450 x 320 mm</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">Control de cabezal</span>
+                            <span class="font-bold text-blue-600">Hidráulico proporcional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sector 1: Automoción & Tubo -->
+            <div x-show="activeSector === 1" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-3" x-transition:enter-end="opacity-100 translate-y-0" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center" style="display: none;">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                        Automoción & Componentes de Precisión
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 leading-tight">
+                        Corte masivo continuo de tubos y ejes con ciclos de 3 a 7 segundos por pieza.
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Para la fabricación de amortiguadores, conductos hidráulicos y casquillos mecanizados, la velocidad y la perpendicularidad son críticas. Las tronzadoras automáticas de disco garantizan ausencia total de rebaba interior y exterior con alimentador por paquete.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Cadencia</span>
+                            <span class="text-base font-extrabold text-slate-900 mt-1 block">Hasta 1.200 pz/h</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Tolerancia Longitud</span>
+                            <span class="text-base font-extrabold text-emerald-600 mt-1 block">± 0.08 mm</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Acabado</span>
+                            <span class="text-base font-extrabold text-blue-600 mt-1 block">Sin desbarbado</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="{{ route('catalog.sierras-disco') }}" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors">
+                            Ver Tronzadoras Rápidas
+                        </a>
+                        <button type="button" @click="$dispatch('open-quote-modal', { product: 'Línea de Corte Rápido Automoción', ref: 'SECTOR-AUTO' })" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200 transition-colors cursor-pointer">
+                            Solicitar Cadencia Estimada
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Máquina Destacada en Sector</span>
+                    <h4 class="text-lg font-bold text-slate-900">MEP TIGER 372 CNC RC 4.0</h4>
+                    <p class="text-xs text-slate-500">Sierra circular automática electrohidráulica de alta productividad con CNC táctil.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2 text-xs text-slate-700">
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Diámetro de disco</span>
+                            <span class="font-bold">Ø 370 mm HSS</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Carrera alimentador</span>
+                            <span class="font-bold">1.000 mm (repetible)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">Conectividad</span>
+                            <span class="font-bold text-emerald-600">Industria 4.0 IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sector 2: Calderería & Macizos -->
+            <div x-show="activeSector === 2" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-3" x-transition:enter-end="opacity-100 translate-y-0" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center" style="display: none;">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
+                        Calderería Pesada & Mecanizado General
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 leading-tight">
+                        Corte de barras macizas y aceros aleados para moldes con mínimo ancho de corte.
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        En aceros de alto valor (F-125 tratables, aceros de herramientas 1.2379 o inoxidables dúplex), cada milímetro de merma por corte supone miles de euros al año en viruta. La hoja fina bimetálica o de metal duro reduce al mínimo la pérdida de material.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Grosor de Sangría</span>
+                            <span class="text-base font-extrabold text-emerald-600 mt-1 block">Solo 1.1 mm</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Dureza Material</span>
+                            <span class="text-base font-extrabold text-slate-900 mt-1 block">Hasta 62 HRC</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Desviación Máx</span>
+                            <span class="text-base font-extrabold text-blue-600 mt-1 block">&lt; 0.1 mm / 100mm</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="{{ route('catalog.sierras-cinta') }}" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors">
+                            Ver Sierras para Macizos
+                        </a>
+                        <button type="button" @click="$dispatch('open-quote-modal', { product: 'Sierra para Macizos y Calderería', ref: 'SECTOR-CALDERERIA' })" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200 transition-colors cursor-pointer">
+                            Consultar Compatibilidad
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Máquina Destacada en Sector</span>
+                    <h4 class="text-lg font-bold text-slate-900">MEP SHARK 332-1 NC 5.0</h4>
+                    <p class="text-xs text-slate-500">Sierra automática electrohidráulica de doble columna con CNC para macizos y paquetes.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2 text-xs text-slate-700">
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Corte redondo 0°</span>
+                            <span class="font-bold">Ø 300 mm</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Inverter velocidad</span>
+                            <span class="font-bold">15 - 100 m/min</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">Tensado de cinta</span>
+                            <span class="font-bold text-blue-600">Electrónico digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sector 3: Aluminio & Fachadas -->
+            <div x-show="activeSector === 3" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-3" x-transition:enter-end="opacity-100 translate-y-0" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center" style="display: none;">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 text-xs font-bold">
+                        Carpintería de Aluminio & Muro Cortina
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-display font-extrabold text-slate-900 leading-tight">
+                        Corte simultáneo de doble inglete para perfilería lacada y rotura de puente térmico.
+                    </h3>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Los cerramientos contemporáneos y muros cortina requieren un ángulo de corte matemáticamente exacto para que el sellado de las juntas sea estanco. Las tronzadoras automáticas de doble cabezal sincronizan electrónicamente los dos cortes con posicionamiento brushless.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Velocidad Giro</span>
+                            <span class="text-base font-extrabold text-slate-900 mt-1 block">3.000 RPM</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Longitud de Corte</span>
+                            <span class="text-base font-extrabold text-cyan-600 mt-1 block">Hasta 5.000 mm</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-slate-200">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Presión Mordazas</span>
+                            <span class="text-base font-extrabold text-blue-600 mt-1 block">Anti-marcado perfil</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="{{ route('catalog.aluminio-pvc') }}" class="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors">
+                            Ver Maquinaria Aluminio y PVC
+                        </a>
+                        <button type="button" @click="$dispatch('open-quote-modal', { product: 'Tronzadora Doble Cabezal Aluminio', ref: 'SECTOR-ALUMINIO' })" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200 transition-colors cursor-pointer">
+                            Configurar Línea Completa
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Máquina Destacada en Sector</span>
+                    <h4 class="text-lg font-bold text-slate-900">MEP COBRA 352 / VELOX</h4>
+                    <p class="text-xs text-slate-500">Tronzadora de disco de widia con cabezal basculante y lubricación por microgoteo.</p>
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2 text-xs text-slate-700">
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Disco TCT</span>
+                            <span class="font-bold">Ø 350 mm widia</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-slate-200/60 pb-2">
+                            <span class="text-slate-500">Rotación angular</span>
+                            <span class="font-bold">45° izq - 45° der</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">Superficie de mesa</span>
+                            <span class="font-bold text-cyan-600">Rectificada anti-rayaduras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>
 
@@ -821,6 +1347,264 @@
                 </svg>
             </a>
         </div>
+    </div>
+</section>
+
+<!-- ─── SHOWROOM & TESTING CENTER SECTION ───────────────────────── -->
+<section class="py-24 sm:py-32 bg-slate-900 text-white relative overflow-hidden border-t border-slate-800 fade-up">
+    <!-- Subtle ambient glow -->
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 blur-[130px] rounded-full pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            <!-- Left Info -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Showroom Permanente & Banco de Pruebas</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+                    No decida sobre plano: <br class="hidden sm:inline">
+                    <span class="text-blue-400">corte su material</span> antes de comprar.
+                </h2>
+
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                    Cada aleación reacciona de forma única al avance y velocidad de la cinta. Le invitamos a comprobar las tolerancias reales, la rugosidad superficial y los tiempos de ciclo con sus propias piezas.
+                </p>
+
+                <!-- 2 Action Paths Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-3">
+                    <div class="p-6 rounded-2xl bg-slate-800/90 border border-slate-700/80 space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h4 class="text-base font-bold text-white">Opción A: Visita Showroom</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Venga a nuestras instalaciones centrales en Fuenlabrada (Madrid). Maquinaria conectada bajo tensión para demostraciones en directo.
+                        </p>
+                        <button type="button" @click="$dispatch('open-quote-modal', { product: 'Cita en Showroom Madrid', ref: 'VISITA-SHOWROOM' })" class="text-xs font-bold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1.5 cursor-pointer pt-1">
+                            <span>Agendar visita técnica</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-800/90 border border-slate-700/80 space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        </div>
+                        <h4 class="text-base font-bold text-white">Opción B: Envío de Muestra</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Envíenos una barra o muestra de su perfil por mensajería. Le devolvemos el informe técnico de corte y vídeo 4K del ciclo.
+                        </p>
+                        <button type="button" @click="$dispatch('open-quote-modal', { product: 'Ensayo de Corte con Muestra', ref: 'ENSAYO-MUESTRA' })" class="text-xs font-bold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1.5 cursor-pointer pt-1">
+                            <span>Solicitar ensayo gratuito</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Showcase Card -->
+            <div class="lg:col-span-5">
+                <div class="bg-gradient-to-b from-slate-800 to-slate-850 p-8 sm:p-10 rounded-3xl border border-slate-700 shadow-2xl space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Protocolo de Ensayo Certificado</span>
+                    <h3 class="text-2xl font-bold font-display text-white">¿Qué incluye el informe técnico de corte?</h3>
+                    
+                    <ul class="space-y-3.5 text-xs text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                            <span><strong>Cronometraje exacto:</strong> Tiempo de ciclo completo incluyendo bajada, corte y retroceso.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                            <span><strong>Rugosidad superficial (Ra):</strong> Medición de perpendicularidad y calidad de la cara cortada.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                            <span><strong>Prescripción de consumibles:</strong> Paso de diente óptimo (TPI) y parámetros de avance/RPM.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</span>
+                            <span><strong>Grabación en vídeo:</strong> Registro visual detallado del proceso para su equipo de producción.</span>
+                        </li>
+                    </ul>
+
+                    <div class="pt-4 border-t border-slate-700/80">
+                        <button type="button" 
+                                @click="$dispatch('open-quote-modal', { product: 'Ensayo Técnico en Showroom', ref: 'PROTOCOLO-SHOWROOM' })"
+                                class="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 cursor-pointer">
+                            <span>Solicitar Prueba de Corte Sin Coste</span>
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ─── B2B RENTING & FINANCING SIMULATOR ────────────────────────── -->
+<section class="py-24 sm:py-32 bg-slate-50 border-t border-slate-200 fade-up"
+         x-data="{
+             amount: 24000,
+             months: 48,
+             get monthlyFee() {
+                 // Formula standard B2B industrial leasing approx: factor based on term
+                 let factors = { 36: 0.0315, 48: 0.0245, 60: 0.0205 };
+                 let f = factors[this.months] || 0.0245;
+                 return Math.round(this.amount * f);
+             },
+             get dailyEquivalent() {
+                 return (this.monthlyFee / 22).toFixed(1);
+             }
+         }">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block">Financiación Industrial B2B</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
+                Renting Tecnológico. Cero desembolso inicial.
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+                Estrene maquinaria de última generación sin descapitalizar su empresa ni consumir líneas de crédito bancario. Cuotas 100% deducibles desde el primer día.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            <!-- Left: Interactive Simulator -->
+            <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm space-y-8">
+                
+                <!-- Amount Slider -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Valor de la Maquinaria</label>
+                        <span class="text-2xl font-extrabold font-display text-blue-600" x-text="new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(amount)"></span>
+                    </div>
+                    <input type="range" 
+                           min="8000" 
+                           max="70000" 
+                           step="1000" 
+                           x-model.number="amount" 
+                           class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                    <div class="flex justify-between text-[11px] text-slate-400 font-medium">
+                        <span>8.000 € (Taller)</span>
+                        <span>35.000 € (Automática CNC)</span>
+                        <span>70.000 € (Línea Integral)</span>
+                    </div>
+                </div>
+
+                <!-- Term Buttons -->
+                <div class="space-y-3">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500">Plazo del Contrato</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button type="button" 
+                                @click="months = 36"
+                                class="py-3 px-4 rounded-xl border text-center transition-all cursor-pointer"
+                                :class="months === 36 ? 'bg-blue-600 border-blue-500 text-white font-bold shadow-md shadow-blue-600/20' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 font-medium'">
+                            <span class="text-sm block">36 Meses</span>
+                            <span class="text-[10px] opacity-80">3 años</span>
+                        </button>
+                        <button type="button" 
+                                @click="months = 48"
+                                class="py-3 px-4 rounded-xl border text-center transition-all cursor-pointer"
+                                :class="months === 48 ? 'bg-blue-600 border-blue-500 text-white font-bold shadow-md shadow-blue-600/20' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 font-medium'">
+                            <span class="text-sm block">48 Meses</span>
+                            <span class="text-[10px] opacity-80">Recomendado</span>
+                        </button>
+                        <button type="button" 
+                                @click="months = 60"
+                                class="py-3 px-4 rounded-xl border text-center transition-all cursor-pointer"
+                                :class="months === 60 ? 'bg-blue-600 border-blue-500 text-white font-bold shadow-md shadow-blue-600/20' : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 font-medium'">
+                            <span class="text-sm block">60 Meses</span>
+                            <span class="text-[10px] opacity-80">Cuota mínima</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Calculated Quote Display -->
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-slate-400 block tracking-wider">Cuota Mensual Estimada</span>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="text-3xl sm:text-4xl font-extrabold font-display text-slate-900" x-text="monthlyFee + ' €/mes'"></span>
+                            <span class="text-xs text-slate-500">+ IVA</span>
+                        </div>
+                    </div>
+                    <div class="sm:text-right border-t sm:border-t-0 sm:border-l border-slate-200 pt-3 sm:pt-0 sm:pl-6">
+                        <span class="text-[11px] text-slate-500 block">Equivalente por día hábil:</span>
+                        <span class="text-lg font-bold text-emerald-600" x-text="'~' + dailyEquivalent + ' €/día'"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" 
+                            @click="$dispatch('open-quote-modal', { product: 'Estudio de Renting ' + amount + '€ a ' + months + ' meses', ref: 'RENTING-' + months + 'M' })"
+                            class="w-full py-4 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 transition-all cursor-pointer">
+                        <span>Solicitar Estudio de Financiación Rápido</span>
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                    <p class="text-[11px] text-slate-400 text-center mt-2.5">Aprobación financiera en 24-48 horas con solo CIF y modelo 200/390.</p>
+                </div>
+
+            </div>
+
+            <!-- Right: 4 Financial Advantages -->
+            <div class="lg:col-span-5 space-y-4">
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 flex items-start gap-4 shadow-2xs">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l-2-1-2 1-2-1-2 1-2-1-2 1-2-1"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900">100% Gasto Deducible</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Al considerarse gasto operativo (OPEX) y no inversión inmovilizada, la cuota íntegra se deduce en el Impuesto sobre Sociedades.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 flex items-start gap-4 shadow-2xs">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900">CIRBE Bancaria Intacta</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            No computa como endeudamiento financiero en Banco de España, manteniendo intactas sus pólizas de crédito para compras de material.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 flex items-start gap-4 shadow-2xs">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900">Seguro a Todo Riesgo Incluido</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            La máquina está asegurada contra averías internas, daños eléctricos, incendios y robo durante toda la vigencia del contrato.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 flex items-start gap-4 shadow-2xs">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 font-bold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-slate-900">Renovación o Propiedad Final</h4>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Al vencer el contrato usted decide: renovar por el último modelo del mercado o adquirir la propiedad por una cuota residual mínima.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>
 
