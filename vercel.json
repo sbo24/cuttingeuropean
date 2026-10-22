@@ -37,6 +37,8 @@
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
+    "APP_URL": "https://cuttingeuropean.vercel.app",
+    "ASSET_URL": "https://cuttingeuropean.vercel.app",
     "LOG_CHANNEL": "stderr",
     "CACHE_DRIVER": "file",
     "SESSION_DRIVER": "file",

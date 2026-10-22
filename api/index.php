@@ -7,6 +7,14 @@ putenv('TMPDIR=/tmp');
 ini_set('sys_temp_dir', '/tmp');
 ini_set('upload_tmp_dir', '/tmp');
 
+// Forward HTTPS scheme behind Vercel proxy so assets load over https://
+if ((isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+    (isset($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+    (isset($_SERVER['VERCEL']))) {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = '443';
+}
+
 // Writable storage and cache paths
 $storagePath = '/tmp/storage';
 putenv("APP_STORAGE={$storagePath}");
