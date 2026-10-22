@@ -18,6 +18,12 @@ $app = Application::configure(basePath: dirname(__DIR__))
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),
         );
+        // Log original exception to stderr so Vercel captures it
+        $exceptions->report(function (\Throwable $e) {
+            error_log('🔴 ORIGINAL_ERROR [' . get_class($e) . ']: ' . $e->getMessage()
+                . ' in ' . $e->getFile() . ':' . $e->getLine()
+                . "\n" . $e->getTraceAsString());
+        });
     })->create();
 
 // Override storage path to /tmp for Vercel (read-only filesystem)
