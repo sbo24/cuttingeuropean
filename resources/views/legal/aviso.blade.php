@@ -23,7 +23,7 @@
             </p>
             <p>
                 <strong>Denominación Social:</strong> Cutting European S.L.<br>
-                <strong>Domicilio Social:</strong> Polígono Industrial Palou Nord, 08401 Granollers (Barcelona), España.<br>
+                <strong>Domicilio Social:</strong> C. del Amonio, 2, 28946 Fuenlabrada (Madrid), España.<br>
                 <strong>Email de Contacto:</strong> info@cuttingeuropean.com<br>
                 <strong>Teléfono:</strong> +34 93 849 84 56<br>
                 <strong>Actividad:</strong> Comercio al por mayor y servicio técnico de maquinaria industrial para el corte de metales.

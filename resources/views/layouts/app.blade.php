@@ -35,10 +35,10 @@
         "email": "info@cuttingeuropean.com",
         "address": {
             "@@type": "PostalAddress",
-            "streetAddress": "Pol. Ind. Palou Nord",
-            "addressLocality": "Granollers",
-            "addressRegion": "Barcelona",
-            "postalCode": "08401",
+            "streetAddress": "C. del Amonio, 2",
+            "addressLocality": "Fuenlabrada",
+            "addressRegion": "Madrid",
+            "postalCode": "28946",
             "addressCountry": "ES"
         },
         "sameAs": [

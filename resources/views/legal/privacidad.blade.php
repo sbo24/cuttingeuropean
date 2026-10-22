@@ -20,7 +20,7 @@
             <h2 class="text-lg font-bold text-gray-900">1. Responsable del Tratamiento</h2>
             <p>
                 <strong>Razón Social:</strong> Cutting European S.L.<br>
-                <strong>Domicilio:</strong> Polígono Industrial Palou Nord, 08401 Granollers (Barcelona), España.<br>
+                <strong>Domicilio:</strong> C. del Amonio, 2, 28946 Fuenlabrada (Madrid), España.<br>
                 <strong>Teléfono:</strong> +34 93 849 84 56<br>
                 <strong>Email:</strong> info@cuttingeuropean.com
             </p>

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
+@source "../views";
+@source "../../app";
 
 /* ═══════════════════════════════════════════════════════════
    CUTTING EUROPEAN — DESIGN SYSTEM
@@ -31,7 +33,7 @@
 }
 
 /* ─── BASE ─────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; }
 
 html {
     scroll-behavior: smooth;
@@ -72,23 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-muted  { color: var(--color-muted); }
 .text-ink    { color: var(--color-ink); }
 
-/* ─── LAYOUT ───────────────────────────────────────────── */
-.container {
-    width: 100%;
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .container { padding-left: 2rem; padding-right: 2rem; }
-}
-@media (min-width: 1280px) {
-    .container { padding-left: 2.5rem; padding-right: 2.5rem; }
-}
-
+/* ─── LAYOUT UTILITIES ─────────────────────────────────── */
 .section {
     padding-top: var(--spacing-section);
     padding-bottom: var(--spacing-section);
@@ -100,21 +86,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── HEADER / NAV ─────────────────────────────────────── */
 #site-header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 1000;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    transition: box-shadow 0.2s ease;
 }
 
 #site-header.scrolled {
-    border-color: var(--color-border);
-    box-shadow: 0 2px 32px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .header-inner {
@@ -1023,8 +1004,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .bg-apple-hero {
     background: 
-        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.18) 0%, transparent 40%),
-        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
         linear-gradient(180deg, #07090e 0%, #0a0d16 50%, #030407 100%);
 }
 
@@ -1040,139 +1021,71 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-text-fill-color: transparent;
 }
 
-/* Apple Frosted Glassmorphism */
+/* Frosted Glass */
 .apple-glass {
-    background: rgba(255, 255, 255, 0.72);
-    backdrop-filter: saturate(180%) blur(24px);
-    -webkit-backdrop-filter: saturate(180%) blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 }
 
 .apple-glass-dark {
-    background: rgba(15, 20, 32, 0.75);
-    backdrop-filter: saturate(190%) blur(30px);
-    -webkit-backdrop-filter: saturate(190%) blur(30px);
+    background: rgba(15, 20, 32, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* 3D Bento Cards & Dynamic Tilt */
+/* Professional Industrial Product Cards */
 .apple-card-3d {
     position: relative;
-    border-radius: 1.5rem;
+    border-radius: 1.25rem;
     background: #ffffff;
-    border: 1px solid rgba(226, 232, 240, 0.8);
-    transform-style: preserve-3d;
-    perspective: 1200px;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.apple-card-3d::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(37, 99, 235, 0.2), transparent 70%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .apple-card-3d:hover {
-    transform: translateY(-8px) rotateX(2deg) rotateY(-1deg);
-    box-shadow: 0 32px 64px -16px rgba(15, 23, 42, 0.12), 0 16px 32px -8px rgba(37, 99, 235, 0.08);
-    border-color: rgba(59, 130, 246, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    border-color: #93c5fd;
 }
 
-.apple-card-3d:hover::before {
-    opacity: 1;
-}
-
-/* 3D Pop Elements inside card */
-.apple-card-3d .pop-3d {
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-style: preserve-3d;
-}
-
-.apple-card-3d:hover .pop-3d {
-    transform: translateZ(32px) scale(1.04);
-}
-
-.apple-card-3d .pop-badge {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.apple-card-3d:hover .pop-badge {
-    transform: translateZ(24px) translateY(-2px);
-}
-
-/* Apple Pill Glow Button */
+/* Buttons */
 .apple-btn-primary {
-    position: relative;
-    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
-    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: #ffffff;
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    transition: all 0.2s ease;
 }
 
 .apple-btn-primary:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 18px 35px -5px rgba(37, 99, 235, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
 }
 
 .apple-btn-secondary {
-    position: relative;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 600;
     border-radius: 9999px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
 }
 
 .apple-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     border-color: rgba(255, 255, 255, 0.35);
-    transform: translateY(-2px);
-}
-
-/* 3D Hardware Display Stage */
-.stage-3d {
-    perspective: 1400px;
-}
-
-.hardware-float {
-    animation: hardwareFloat 7s ease-in-out infinite alternate;
-    transform-style: preserve-3d;
-}
-
-@keyframes hardwareFloat {
-    0% {
-        transform: translateY(0px) rotateY(-4deg) rotateX(3deg);
-    }
-    100% {
-        transform: translateY(-14px) rotateY(4deg) rotateX(-2deg);
-    }
-}
-
-/* Subtle Specular Glow Ring */
-.specular-ring {
-    position: relative;
-}
-.specular-ring::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.6) 0%, transparent 60%);
-    z-index: -1;
-    opacity: 0.6;
-    filter: blur(8px);
 }
