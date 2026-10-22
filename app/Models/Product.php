@@ -62,4 +62,29 @@ class Product extends Model
     {
         return $value ?: ($this->short_description ?? '');
     }
+
+    public function getCuttingCapacitiesAttribute(): array
+    {
+        return \App\Services\ProductTechnicalDataService::getCuttingCapacities($this);
+    }
+
+    public function getTechnicalParametersAttribute(): array
+    {
+        return \App\Services\ProductTechnicalDataService::getTechnicalParameters($this);
+    }
+
+    public function getVideoDataAttribute(): array
+    {
+        return \App\Services\ProductTechnicalDataService::getVideoData($this);
+    }
+
+    public function getEquipmentAttribute(): array
+    {
+        return \App\Services\ProductTechnicalDataService::getEquipment($this);
+    }
+
+    public function getRentingDataAttribute(): array
+    {
+        return \App\Services\ProductTechnicalDataService::getEstimatedRentingFee($this);
+    }
 }
