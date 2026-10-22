@@ -3,6 +3,17 @@
 // Redirect all requests to Laravel's public/index.php
 // This is the Vercel serverless entry point for Laravel
 
+// Catch ALL errors and output them for debugging
+set_exception_handler(function($e) {
+    error_log('VERCEL_BOOT_EXCEPTION: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+    error_log('TRACE: ' . $e->getTraceAsString());
+    http_response_code(500);
+    header('Content-Type: text/plain');
+    echo "Boot Error: " . $e->getMessage() . "\n";
+    echo "File: " . $e->getFile() . ":" . $e->getLine() . "\n";
+    echo $e->getTraceAsString();
+});
+
 // Fix writable paths for Vercel's read-only filesystem
 $_ENV['APP_STORAGE'] = '/tmp/storage';
 $_SERVER['APP_STORAGE'] = '/tmp/storage';
