@@ -4,268 +4,296 @@
 @section('meta_description', 'Líderes en comercialización de sierras de cinta para metal, sierras de disco MEP, líneas de corte, maquinaria de ocasión revisada y servicio técnico oficial en toda España.')
 
 @section('content')
-<!-- ─── HERO SECTION ────────────────────────────────────────────────── -->
-<section class="relative bg-gray-950 text-white overflow-hidden py-20 lg:py-28 border-b border-gray-800">
-    <!-- Subtle Industrial Grid Background Pattern -->
-    <div class="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-    
-    <!-- Accent Gradient Glow -->
-    <div class="absolute top-1/4 -right-48 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 -left-48 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+<!-- ─── HERO: APPLE PRO INDUSTRIAL KEYNOTE STAGE ────────────────────── -->
+<section class="relative bg-apple-hero text-white overflow-hidden py-24 lg:py-32 border-b border-white/10">
+    <!-- Subtle Ambient Specular Rings & 3D Depth Lights -->
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-blue-600/20 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 right-10 w-96 h-96 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
 
     <div class="container mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <!-- Left Copy -->
-            <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-900/40 border border-blue-500/30 text-blue-300 text-xs font-semibold tracking-wide uppercase">
-                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
-                    <span>Ingeniería de Corte & Distribución Oficial MEP</span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <!-- Left: Typography & Apple CTA Pills -->
+            <div class="lg:col-span-7 space-y-8">
+                <!-- Apple Keynote Pill Badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.8)] animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wide text-gray-200">Gama Profesional 2026 &bull; Distribución Oficial MEP</span>
                 </div>
 
-                <h1 class="font-display font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-white">
-                    Precisión Absoluta en <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-200 to-white">
-                        Maquinaria de Corte
-                    </span> de Metal
+                <!-- Giant Apple Pro Headline -->
+                <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-[-0.03em] leading-[1.05]">
+                    El nuevo estándar en <br>
+                    <span class="text-gradient-apple">corte industrial</span> <br>
+                    <span class="text-gradient-blue">de alta precisión.</span>
                 </h1>
 
-                <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl font-light">
-                    Optimizamos los tiempos de ciclo y la rentabilidad de su taller o fábrica con sierras de cinta automáticas, tronzadoras de disco de alta velocidad y líneas completas de corte para perfiles de acero, aluminio y PVC.
+                <p class="text-base sm:text-lg text-gray-400 font-light leading-relaxed max-w-xl">
+                    Sierras de cinta automáticas, tronzadoras de disco de alta velocidad y centros de corte diseñados para maximizar la productividad y eliminar tolerancias en su fábrica o taller.
                 </p>
 
-                <!-- Action CTAs -->
+                <!-- Action Pills -->
                 <div class="pt-2 flex flex-wrap items-center gap-4">
                     <button type="button" 
                             @click="$dispatch('open-quote-modal')"
-                            class="px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-blue-600/30 transition-all flex items-center gap-3 cursor-pointer">
-                        <span>Solicitar Asesoramiento Técnico</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="apple-btn-primary px-8 py-4 text-white text-sm tracking-wide flex items-center gap-3 cursor-pointer">
+                        <span>Solicitar Asesoramiento</span>
+                        <svg class="w-4 h-4 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                         </svg>
                     </button>
-                    <a href="{{ route('catalog.sierras-cinta') }}" class="px-7 py-4 rounded-xl bg-gray-900 hover:bg-gray-800 text-gray-200 font-bold text-sm tracking-wide rounded-xl border border-gray-700 hover:border-gray-600 transition-colors">
-                        Ver Catálogo de Máquinas
+                    <a href="{{ route('catalog.sierras-cinta') }}" class="apple-btn-secondary px-7 py-4 text-gray-200 text-sm font-semibold tracking-wide">
+                        Explorar Catálogo
                     </a>
                 </div>
 
-                <!-- Fast Trust Highlights -->
-                <div class="pt-6 border-t border-gray-800/80 grid grid-cols-3 gap-4 text-left">
+                <!-- Industrial Metric Pills (Apple Hardware Specs) -->
+                <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-6">
                     <div>
-                        <span class="block text-xl lg:text-2xl font-black text-white font-display">+30 Años</span>
-                        <span class="text-xs text-gray-400">Especialistas en corte</span>
+                        <span class="block text-2xl lg:text-3xl font-black font-display text-white tracking-tight">+30 Años</span>
+                        <span class="text-xs text-gray-400 font-light mt-0.5 block">Ingeniería especializada</span>
                     </div>
                     <div>
-                        <span class="block text-xl lg:text-2xl font-black text-white font-display">&lt; 24h</span>
-                        <span class="text-xs text-gray-400">Respuesta SAT técnica</span>
+                        <span class="block text-2xl lg:text-3xl font-black font-display text-white tracking-tight">&lt; 24h</span>
+                        <span class="text-xs text-gray-400 font-light mt-0.5 block">Respuesta SAT oficial</span>
                     </div>
                     <div>
-                        <span class="block text-xl lg:text-2xl font-black text-white font-display">Oficial MEP</span>
-                        <span class="text-xs text-gray-400">Garantía europea</span>
+                        <span class="block text-2xl lg:text-3xl font-black font-display text-blue-400 tracking-tight">MEP Italia</span>
+                        <span class="text-xs text-gray-400 font-light mt-0.5 block">Distribuidor homologado</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Hero Card / Featured Highlight -->
-            <div class="lg:col-span-5">
-                <div class="relative bg-gray-900/90 rounded-2xl border border-gray-800 p-6 shadow-2xl backdrop-blur-md">
-                    <div class="flex items-center justify-between pb-4 border-b border-gray-800">
-                        <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Gama Destacada 2026</span>
-                        <span class="px-2 py-0.5 text-[11px] font-bold uppercase bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded">
-                            Industry 4.0 Ready
+            <!-- Right: 3D Hardware Display Showcase with Floating Holographic Pills -->
+            <div class="lg:col-span-5 relative stage-3d">
+                <div class="relative apple-glass-dark p-8 rounded-3xl hardware-float shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] border border-white/15">
+                    
+                    <!-- Top Status Bar -->
+                    <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">Modelo Destacado</span>
+                        <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30 text-[10px] font-bold tracking-wider">
+                            Industry 4.0
                         </span>
                     </div>
 
-                    <div class="py-6 flex items-center justify-center">
+                    <!-- 3D Centered Machine Graphic with Ambient Glow -->
+                    <div class="py-8 relative flex items-center justify-center">
+                        <div class="absolute w-56 h-56 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
                         <img src="https://cuttingeuropean.com/wp-content/uploads/2024/12/SHARK-281-NC-50_segatrice-a-nastro-automatica.webp" 
                              alt="MEP SHARK 281 NC-50 Sierra de cinta automática"
-                             class="max-h-64 object-contain filter drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                             class="max-h-64 object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] relative z-10 transition-transform duration-700 hover:scale-105"
                              onerror="this.style.display='none'">
                     </div>
 
-                    <div class="space-y-3 pt-2">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-bold text-white">MEP SHARK 281 NC-50</h3>
-                            <span class="text-xs font-semibold px-2 py-1 bg-gray-800 text-gray-300 rounded">Cap. Ø 281 mm</span>
+                    <!-- Floating 3D Spec Pills Orbiting the Hardware -->
+                    <div class="grid grid-cols-2 gap-2.5 pt-2 text-xs">
+                        <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                            <span class="text-[9px] uppercase font-bold text-gray-400 tracking-wider block">Capacidad Corte</span>
+                            <span class="text-white font-bold text-sm">Ø 281 mm</span>
                         </div>
-                        <p class="text-xs text-gray-400 leading-relaxed">
-                            Sierra de cinta automática electrohidráulica con control programable NC-50 para ciclos desatendidos de alta producción.
-                        </p>
-                        <div class="pt-3 flex items-center gap-3">
-                            <a href="{{ route('legacy.sierras-de-cinta-automaticas') }}" class="flex-1 py-2.5 px-3 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg text-center transition-colors">
-                                Consultar Disponibilidad
-                            </a>
-                            <a href="tel:+34938498456" class="p-2.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg border border-gray-700 transition-colors" title="Llamar para asesoramiento">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                                </svg>
-                            </a>
+                        <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                            <span class="text-[9px] uppercase font-bold text-gray-400 tracking-wider block">Sistema Control</span>
+                            <span class="text-white font-bold text-sm">NC-50 CNC</span>
                         </div>
+                    </div>
+
+                    <!-- Card Bottom CTA -->
+                    <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <h3 class="text-base font-bold text-white">MEP SHARK 281 NC-50</h3>
+                            <p class="text-[11px] text-gray-400 font-light">Ciclos automáticos desatendidos</p>
+                        </div>
+                        <button type="button" 
+                                @click="$dispatch('open-quote-modal', { product: 'MEP SHARK 281 NC-50', ref: 'NC-50' })"
+                                class="apple-btn-primary px-4 py-2 text-xs text-white font-semibold">
+                            Cotizar
+                        </button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- ─── MAIN CATEGORIES SECTION ────────────────────────────────────── -->
-<section class="py-20 bg-gray-50 border-b border-gray-200">
+<!-- ─── APPLE BENTO GRID: MAIN MACHINERY FAMILIES ───────────────────── -->
+<section class="py-24 bg-gray-50 border-b border-gray-200">
     <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Soluciones Integrales</span>
-            <h2 class="text-3xl sm:text-4xl font-display font-black text-gray-950 tracking-tight">
-                Líneas de Maquinaria Especializada
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] block">Gama de Ingeniería</span>
+            <h2 class="text-3xl sm:text-5xl font-display font-black text-gray-950 tracking-tight">
+                Diseñadas para el máximo rendimiento.
             </h2>
-            <p class="text-sm sm:text-base text-gray-600 mt-3 leading-relaxed">
-                Seleccionamos y configuramos la tecnología idónea según la geometría, aleación, volumen de cortes y tolerancias exigidas en su proceso productivo.
+            <p class="text-sm sm:text-base text-gray-600 font-light leading-relaxed">
+                Cada máquina ha sido concebida para ofrecer precisión micrométrica, bajo mantenimiento y una durabilidad extrema en ciclos intensivos.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Card 1: Sierras de Cinta -->
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-blue-500 transition-all duration-300 p-8 flex flex-col justify-between group">
-                <div>
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <!-- Apple Bento Box 3-Card Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Bento 1: Sierras de Cinta -->
+            <div class="apple-card-3d p-8 flex flex-col justify-between group overflow-hidden bg-white">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100/80 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <rect x="3" y="4" width="18" height="16" rx="2" stroke-width="2"/>
                             <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" stroke-dasharray="2 2"/>
                         </svg>
                     </div>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Corte Férrico & Inox</span>
-                    <h3 class="text-2xl font-bold text-gray-950 mb-3 group-hover:text-blue-600 transition-colors">
+
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block">Capacidad Masiva</span>
+                    <h3 class="text-2xl font-bold font-display text-gray-950 group-hover:text-blue-600 transition-colors">
                         Sierras de Cinta
                     </h3>
-                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                        Maquinaria de gran capacidad para perfiles, vigas y macizos. Modelos automáticos CNC, semiautomáticos y manuales con regulación precisa de avance de arco y tensión hidráulica.
+                    <p class="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                        Control electrohidráulico para perfiles, vigas y macizos de gran envergadura. Modelos con doble ingletador y alimentador automático CNC.
                     </p>
-                    <ul class="space-y-2 text-xs font-semibold text-gray-700 mb-6">
-                        <li class="flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Automáticas con alimentador de barra</span>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Cortes en inglete continuo (-60° / +60°)</span>
-                        </li>
-                        <li class="flex items-center gap-2">
+
+                    <div class="space-y-2 pt-2 text-xs font-medium text-gray-700">
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
                             <span>Capacidades de corte hasta Ø650 mm</span>
-                        </li>
-                    </ul>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                            <span>Inglete continuo desde -60° hasta +60°</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                            <span>Mínimo desperdicio de viruta y corte frío</span>
+                        </div>
+                    </div>
                 </div>
-                <a href="{{ route('catalog.sierras-cinta') }}" class="inline-flex items-center justify-between py-3 px-4 rounded-xl bg-gray-50 hover:bg-blue-600 text-gray-900 hover:text-white text-xs font-bold transition-all">
-                    <span>Ver Modelos y Fichas</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
-                </a>
+
+                <div class="pt-8">
+                    <a href="{{ route('catalog.sierras-cinta') }}" class="w-full py-3 px-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold text-xs flex items-center justify-between transition-colors">
+                        <span>Ver catálogo de Sierras de Cinta</span>
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
 
-            <!-- Card 2: Sierras de Disco -->
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-blue-500 transition-all duration-300 p-8 flex flex-col justify-between group">
-                <div>
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Bento 2: Sierras de Disco -->
+            <div class="apple-card-3d p-8 flex flex-col justify-between group overflow-hidden bg-white">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100/80 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="9" stroke-width="2"/>
                             <circle cx="12" cy="12" r="3" fill="currentColor"/>
                         </svg>
                     </div>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Corte Rápido & Acabado</span>
-                    <h3 class="text-2xl font-bold text-gray-950 mb-3 group-hover:text-blue-600 transition-colors">
+
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block">Velocidad Punta</span>
+                    <h3 class="text-2xl font-bold font-display text-gray-950 group-hover:text-blue-600 transition-colors">
                         Sierras de Disco
                     </h3>
-                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                        Tronzadoras de disco HSS y metal duro para corte limpio, sin rebaba y de alta velocidad. Máquinas automáticas Velocex y modelos de cabezal móvil Tiger/Cobra.
+                    <p class="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                        Corte ultra-rápido y limpio para tubos y perfiles metálicos. Modelos de alta producción Velocex y tronzadoras industriales Tiger y Cobra.
                     </p>
-                    <ul class="space-y-2 text-xs font-semibold text-gray-700 mb-6">
-                        <li class="flex items-center gap-2">
+
+                    <div class="space-y-2 pt-2 text-xs font-medium text-gray-700">
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Corte ultra-rápido en producción masiva</span>
-                        </li>
-                        <li class="flex items-center gap-2">
+                            <span>Acabado pulido sin rebaba</span>
+                        </div>
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Excelente acabado de corte y perpendicularidad</span>
-                        </li>
-                        <li class="flex items-center gap-2">
+                            <span>Tronzadoras con cabezal basculante</span>
+                        </div>
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Modelos manuales, semiautomáticos y CNC</span>
-                        </li>
-                    </ul>
+                            <span>Producción masiva en serie</span>
+                        </div>
+                    </div>
                 </div>
-                <a href="{{ route('catalog.sierras-disco') }}" class="inline-flex items-center justify-between py-3 px-4 rounded-xl bg-gray-50 hover:bg-blue-600 text-gray-900 hover:text-white text-xs font-bold transition-all">
-                    <span>Ver Modelos y Fichas</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
-                </a>
+
+                <div class="pt-8">
+                    <a href="{{ route('catalog.sierras-disco') }}" class="w-full py-3 px-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold text-xs flex items-center justify-between transition-colors">
+                        <span>Ver catálogo de Sierras de Disco</span>
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
 
-            <!-- Card 3: Aluminio & PVC -->
-            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-blue-500 transition-all duration-300 p-8 flex flex-col justify-between group">
-                <div>
-                    <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Bento 3: Aluminio y PVC -->
+            <div class="apple-card-3d p-8 flex flex-col justify-between group overflow-hidden bg-white">
+                <div class="space-y-4">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100/80 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
                         </svg>
                     </div>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Carpintería & Fachadas</span>
-                    <h3 class="text-2xl font-bold text-gray-950 mb-3 group-hover:text-blue-600 transition-colors">
+
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block">Cerramientos & Fachadas</span>
+                    <h3 class="text-2xl font-bold font-display text-gray-950 group-hover:text-blue-600 transition-colors">
                         Aluminio y PVC
                     </h3>
-                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                        Maquinaria integral para cerramientos y carpintería metálica: tronzadoras de doble cabezal electrónico, líneas automáticas de corte, pantógrafos y centros de mecanizado.
+                    <p class="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                        Centros de mecanizado de 3 y 4 ejes, tronzadoras de doble cabezal de posicionamiento electrónico y líneas automáticas para carpintería.
                     </p>
-                    <ul class="space-y-2 text-xs font-semibold text-gray-700 mb-6">
-                        <li class="flex items-center gap-2">
+
+                    <div class="space-y-2 pt-2 text-xs font-medium text-gray-700">
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Doble cabezal con posicionamiento CNC</span>
-                        </li>
-                        <li class="flex items-center gap-2">
+                            <span>Doble cabezal CNC sincronizado</span>
+                        </div>
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Pantógrafos y copiadoras de cerraduras</span>
-                        </li>
-                        <li class="flex items-center gap-2">
+                            <span>Pantógrafos y fresadoras copiadoras</span>
+                        </div>
+                        <div class="flex items-center gap-2">
                             <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-                            <span>Centros de mecanizado de 3, 4 y 5 ejes</span>
-                        </li>
-                    </ul>
+                            <span>Centros de corte integral de barras</span>
+                        </div>
+                    </div>
                 </div>
-                <a href="{{ route('catalog.aluminio-pvc') }}" class="inline-flex items-center justify-between py-3 px-4 rounded-xl bg-gray-50 hover:bg-blue-600 text-gray-900 hover:text-white text-xs font-bold transition-all">
-                    <span>Ver Modelos y Fichas</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
-                </a>
+
+                <div class="pt-8">
+                    <a href="{{ route('catalog.aluminio-pvc') }}" class="w-full py-3 px-4 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-semibold text-xs flex items-center justify-between transition-colors">
+                        <span>Ver catálogo Aluminio y PVC</span>
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- ─── FEATURED MACHINERY GRID ───────────────────────────────────── -->
-<section class="py-20 bg-white">
+<!-- ─── FEATURED MACHINERY: 3D CARDS GRID ──────────────────────────── -->
+<section class="py-24 bg-white">
     <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Gama Industrial</span>
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+            <div class="space-y-2">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] block">Modelos Disponibles</span>
                 <h2 class="text-3xl sm:text-4xl font-display font-black text-gray-950 tracking-tight">
-                    Máquinas Destacadas en Stock
+                    Máquinas en Stock y Entrega Preferente
                 </h2>
-                <p class="text-sm text-gray-600 mt-2 max-w-xl">
-                    Modelos con entrega inmediata o plazos reducidos para producción industrial continua.
+                <p class="text-sm text-gray-500 font-light max-w-xl">
+                    Tecnología probada en fábrica con servicio de instalación y formación presencial en sus instalaciones.
                 </p>
             </div>
-            <a href="{{ route('catalog.sierras-cinta') }}" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600 hover:text-blue-700">
-                <span>Ver Todas las Máquinas</span>
+            <a href="{{ route('catalog.sierras-cinta') }}" class="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-blue-600 hover:text-blue-700">
+                <span>Ver Todos los Modelos</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
             </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse($featuredProducts as $product)
                 @include('partials.product-card', ['product' => $product])
             @empty
-                <div class="col-span-3 text-center py-12 text-gray-500">
+                <div class="col-span-3 text-center py-12 text-gray-400">
                     No hay productos destacados disponibles en este momento.
                 </div>
             @endforelse
@@ -273,155 +301,180 @@
     </div>
 </section>
 
-<!-- ─── MEP DISTRIBUTOR PARTNERSHIP BANNER ─────────────────────────── -->
-<section class="py-16 bg-gray-900 text-white relative overflow-hidden">
+<!-- ─── APPLE PRO MEP PARTNERSHIP SHOWCASE ─────────────────────────── -->
+<section class="py-24 bg-apple-dark text-white relative overflow-hidden border-t border-b border-white/10">
+    <div class="absolute inset-0 bg-radial from-blue-600/15 via-transparent to-transparent pointer-events-none"></div>
+
     <div class="container mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-600/30 text-blue-400 rounded-md text-xs font-bold uppercase tracking-wider border border-blue-500/30">
-                    Alianza Tecnológica
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-8 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs font-bold uppercase tracking-wider">
+                    Alianza Oficial de Fabricación
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-display font-black text-white">
-                    Distribuidor Oficial MEP: Rendimiento, Calidad y Tecnología Italiana
+
+                <h2 class="text-3xl sm:text-5xl font-display font-black text-white tracking-tight">
+                    MEP Italia: Más de 60 años perfeccionando el corte de metales.
                 </h2>
-                <p class="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-2xl">
-                    MEP es referencia mundial en sierras de cinta y disco desde 1964. Como distribuidores oficiales, suministramos maquinaria nueva con garantía de fábrica, recambios 100% originales, útiles de amarre y asistencia técnica directa sin intermediarios.
+
+                <p class="text-sm sm:text-base text-gray-300 font-light leading-relaxed max-w-2xl">
+                    Como distribuidores oficiales de MEP en España, le ofrecemos acceso directo al catálogo de última generación, soporte de ingeniería directo de fábrica y suministro de repuestos con garantía original.
                 </p>
-                <div class="flex flex-wrap items-center gap-6 pt-2 text-xs font-semibold text-gray-300">
-                    <span class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        <span>Garantía Oficial de Fábrica</span>
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        <span>Stock de Recambios 48h</span>
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        <span>Conectividad RC KONNECT 4.0</span>
-                    </span>
+
+                <!-- 3 Spec Badges -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-xs">
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <span class="block text-blue-400 font-bold mb-1">Repuestos Oficiales</span>
+                        <span class="text-gray-300 font-light">Envío en 24/48h directo de almacén</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <span class="block text-blue-400 font-bold mb-1">Garantía Certificada</span>
+                        <span class="text-gray-300 font-light">Marcado CE y directiva de máquinas</span>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
+                        <span class="block text-blue-400 font-bold mb-1">Conectividad 4.0</span>
+                        <span class="text-gray-300 font-light">Telemetría y control remoto RC</span>
+                    </div>
                 </div>
             </div>
-            <div class="lg:col-span-4 flex flex-col items-center justify-center bg-gray-950 p-8 rounded-2xl border border-gray-800 text-center">
-                <span class="text-xs uppercase font-bold text-gray-400 tracking-wider mb-2">¿Tienes una máquina MEP?</span>
-                <h4 class="text-base font-bold text-white mb-4">¿Necesitas repuestos, revisión o puesta a punto?</h4>
-                <a href="{{ route('servicio-tecnico') }}" class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-colors">
-                    Contactar Servicio SAT MEP
-                </a>
+
+            <div class="lg:col-span-4">
+                <div class="apple-glass-dark p-8 rounded-3xl text-center space-y-4 border border-white/15">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block">Soporte Técnico Especializado</span>
+                    <h3 class="text-xl font-bold font-display text-white">¿Ya cuenta con maquinaria MEP?</h3>
+                    <p class="text-xs text-gray-400 font-light leading-relaxed">
+                        Nuestro SAT oficial realiza mantenimiento preventivo, revisiones de reductores y suministro de consumibles.
+                    </p>
+                    <div class="pt-2">
+                        <a href="{{ route('servicio-tecnico') }}" class="apple-btn-primary block w-full py-3 text-white text-xs font-semibold tracking-wide">
+                            Solicitar Asistencia SAT MEP
+                        </a>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- ─── SECOND HAND & PLAN RENOVE ─────────────────────────────────── -->
-<section class="py-20 bg-gray-50 border-b border-gray-200">
+<!-- ─── APPLE TRADE-IN STYLE: PLAN RENOVE & OCASIÓN ────────────────── -->
+<section class="py-24 bg-gray-50 border-b border-gray-200">
     <div class="container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <!-- Left Info -->
-            <div class="lg:col-span-5 space-y-5">
-                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest block">Oportunidades Revisadas</span>
-                <h2 class="text-3xl sm:text-4xl font-display font-black text-gray-950 tracking-tight">
-                    Maquinaria de Ocasión y Plan Renove
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-6">
+                <span class="text-xs font-bold text-amber-600 uppercase tracking-[0.2em] block">Programa de Recompra</span>
+                
+                <h2 class="text-3xl sm:text-5xl font-display font-black text-gray-950 tracking-tight">
+                    Plan Renove. <br>
+                    <span class="text-gray-400 font-light">Entregue su máquina.</span> <br>
+                    Estrene precisión.
                 </h2>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                    Ponemos a su disposición máquinas de ocasión completamente revisadas en nuestros propios talleres por técnicos especializados. Cada máquina se entrega verificada con prueba de corte, tolerancias de precisión garantizadas y garantía de funcionamiento.
+
+                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                    Tasamos su sierra de cinta o disco usada sin importar la marca ni los años de servicio. Su valor se descuenta de forma inmediata de su nueva inversión, con recogida y puesta en marcha coordinadas.
                 </p>
 
-                <!-- Plan Renove Box -->
-                <div class="p-5 bg-white rounded-xl border border-amber-200 shadow-sm space-y-2">
+                <div class="p-6 rounded-2xl bg-white border border-gray-200/80 shadow-xs space-y-3">
                     <div class="flex items-center gap-2 text-amber-700 font-bold text-sm">
-                        <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                         </svg>
-                        <span>Plan Renove de Maquinaria</span>
+                        <span>Ventajas del Plan Renove</span>
                     </div>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        Tasamos su máquina de corte usada y descontamos su valor directamente de la adquisición de su nueva sierra de cinta o disco. Reduzca la inversión inicial y actualice su parque de maquinaria sin complicaciones.
-                    </p>
-                    <div class="pt-2">
-                        <a href="{{ route('plan-renove') }}" class="text-xs font-bold text-amber-700 hover:text-amber-800 underline">
-                            Calcular tasación para Plan Renove →
-                        </a>
-                    </div>
+                    <ul class="text-xs text-gray-600 space-y-1.5 font-light">
+                        <li>&bull; Tasación técnica en menos de 24 horas laborables.</li>
+                        <li>&bull; Retirada y transporte gestionado por nuestros técnicos.</li>
+                        <li>&bull; Transición sin paradas improductivas en su línea de corte.</li>
+                    </ul>
                 </div>
 
-                <div>
-                    <a href="{{ route('catalog.ocasion') }}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-950 hover:bg-gray-800 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
-                        <span>Ver Stock de Ocasión Disponible</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
+                <div class="pt-2 flex flex-wrap gap-3">
+                    <a href="{{ route('plan-renove') }}" class="apple-btn-primary px-6 py-3.5 text-white text-xs font-semibold">
+                        Tasación Gratuita Online
+                    </a>
+                    <a href="{{ route('catalog.ocasion') }}" class="px-6 py-3.5 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-semibold transition-colors">
+                        Ver Stock de Ocasión
                     </a>
                 </div>
             </div>
 
-            <!-- Right: Stock Teaser Grid -->
+            <!-- Right: Stock Cards Showcase -->
             <div class="lg:col-span-7">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     @forelse($secondHandProducts as $product)
                         @include('partials.product-card', ['product' => $product, 'showCategory' => false])
                     @empty
-                        <div class="col-span-2 bg-white rounded-xl border border-gray-200 p-8 text-center text-gray-500">
-                            Consultar stock disponible de ocasión llamando al <a href="tel:+34938498456" class="text-blue-600 font-bold">+34 93 849 84 56</a>.
+                        <div class="col-span-2 apple-card-3d p-8 text-center text-gray-500">
+                            Consulte el stock disponible en taller llamando al <a href="tel:+34938498456" class="text-blue-600 font-bold">+34 93 849 84 56</a>.
                         </div>
                     @endforelse
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- ─── TECHNICAL SERVICE (SAT) ────────────────────────────────────── -->
-<section class="py-20 bg-white">
+<!-- ─── TECHNICAL SERVICE (SAT) SECTION ────────────────────────────── -->
+<section class="py-24 bg-white">
     <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Servicio Técnico Integral</span>
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] block">Soporte Post-Venta</span>
             <h2 class="text-3xl sm:text-4xl font-display font-black text-gray-950 tracking-tight">
-                Mantenimiento, Reparación y Recambios Oficiales
+                Servicio Técnico Propio de Principio a Fin
             </h2>
-            <p class="text-sm sm:text-base text-gray-600 mt-3 leading-relaxed">
-                Minimizamos las paradas de producción de su planta mediante asistencia in situ, diagnosis rápida y suministro de piezas originales y consumibles.
+            <p class="text-sm text-gray-600 font-light leading-relaxed">
+                Nuestros ingenieros mecánicos y eléctricos se encargan de la instalación, calibración con galgas de precisión y suministro continuo de recambios y consumibles.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">1</div>
-                <h3 class="text-base font-bold text-gray-900">Puesta en Marcha</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                    Instalación, calibración geométrica, prueba con material real y formación técnica personalizada a sus operarios.
-                </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="apple-card-3d p-6 bg-gray-50/60 flex flex-col justify-between">
+                <div>
+                    <span class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm mb-4">01</span>
+                    <h3 class="text-base font-bold text-gray-950">Puesta en Marcha</h3>
+                    <p class="text-xs text-gray-500 font-light mt-2 leading-relaxed">
+                        Calibración geométrica in situ, comprobación de perpendicularidad y formación operativa a su personal.
+                    </p>
+                </div>
             </div>
 
-            <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">2</div>
-                <h3 class="text-base font-bold text-gray-900">Mantenimiento Preventivo</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                    Revisiones periódicas de tensión de cinta, guías de widia, circuitos hidráulicos, mordazas y variadores.
-                </p>
+            <div class="apple-card-3d p-6 bg-gray-50/60 flex flex-col justify-between">
+                <div>
+                    <span class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm mb-4">02</span>
+                    <h3 class="text-base font-bold text-gray-950">Mantenimiento Preventivo</h3>
+                    <p class="text-xs text-gray-500 font-light mt-2 leading-relaxed">
+                        Planes programados para evitar averías: revisión de guías de widia, presión de mordazas y circuitos hidráulicos.
+                    </p>
+                </div>
             </div>
 
-            <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">3</div>
-                <h3 class="text-base font-bold text-gray-900">Recambios y Desgaste</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                    Almacén permanente de rodamientos, bombas de taladrina, platos de corte, mordazas, correas y retenes.
-                </p>
+            <div class="apple-card-3d p-6 bg-gray-50/60 flex flex-col justify-between">
+                <div>
+                    <span class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm mb-4">03</span>
+                    <h3 class="text-base font-bold text-gray-950">Recambios Originales</h3>
+                    <p class="text-xs text-gray-500 font-light mt-2 leading-relaxed">
+                        Más de 5.000 referencias en almacén: bombas de taladrina, platos de corte, reductores y sensores de fin de carrera.
+                    </p>
+                </div>
             </div>
 
-            <div class="p-6 rounded-xl bg-gray-50 border border-gray-200 space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">4</div>
-                <h3 class="text-base font-bold text-gray-900">Hojas de Sierra & Discos</h3>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                    Suministro de cintas bimetálicas M42, M51, metal duro y discos HSS adaptados a su aleación exacta.
-                </p>
+            <div class="apple-card-3d p-6 bg-gray-50/60 flex flex-col justify-between">
+                <div>
+                    <span class="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm mb-4">04</span>
+                    <h3 class="text-base font-bold text-gray-950">Cintas & Discos a Medida</h3>
+                    <p class="text-xs text-gray-500 font-light mt-2 leading-relaxed">
+                        Soldadura de hojas de cinta bimetálicas M42, M51 y discos de corte adaptados al tipo exacto de acero o aleación.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="mt-10 text-center">
-            <a href="{{ route('servicio-tecnico') }}" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm">
-                <span>Conocer todos los servicios SAT</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="mt-12 text-center">
+            <a href="{{ route('servicio-tecnico') }}" class="apple-btn-secondary inline-flex items-center gap-2 px-8 py-3.5 text-gray-900 border-gray-300 font-semibold text-xs tracking-wider">
+                <span>Ver Servicios Técnicos SAT</span>
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
             </a>
@@ -429,74 +482,71 @@
     </div>
 </section>
 
-<!-- ─── FAQ INDUSTRIAL SECTION (SEO RICH) ─────────────────────────── -->
-<section class="py-20 bg-gray-50 border-t border-gray-200" x-data="{ active: null }">
-    <div class="container mx-auto max-w-4xl">
-        <div class="text-center mb-12">
-            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest block mb-2">Preguntas Frecuentes</span>
-            <h2 class="text-3xl font-display font-black text-gray-950">Dudas Técnicas sobre Maquinaria de Corte</h2>
+<!-- ─── FAQ INDUSTRIAL SECTION ──────────────────────────────────────── -->
+<section class="py-24 bg-gray-50 border-t border-gray-200" x-data="{ active: null }">
+    <div class="container mx-auto max-w-3xl">
+        <div class="text-center mb-14 space-y-2">
+            <span class="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] block">Dudas Habituales</span>
+            <h2 class="text-3xl font-display font-black text-gray-950">Preguntas Frecuentes</h2>
         </div>
 
-        <div class="space-y-4">
-            <!-- FAQ 1 -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs">
-                <button type="button" @click="active = active === 1 ? null : 1" class="w-full p-5 text-left font-bold text-sm text-gray-900 flex items-center justify-between hover:bg-gray-50">
-                    <span>¿Cuándo conviene elegir una sierra de cinta y cuándo una de disco?</span>
-                    <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{ 'rotate-180': active === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="space-y-3">
+            <div class="apple-card-3d bg-white overflow-hidden p-6 transition-all">
+                <button type="button" @click="active = active === 1 ? null : 1" class="w-full text-left font-bold text-sm text-gray-900 flex items-center justify-between">
+                    <span>¿Cuándo elegir sierra de cinta frente a sierra de disco?</span>
+                    <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{ 'rotate-180 text-blue-600': active === 1 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>
-                <div x-show="active === 1" x-collapse class="px-5 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
-                    Las <strong>sierras de cinta</strong> son ideales para cortar piezas macizas de gran tamaño (desde Ø150 mm hasta más de Ø600 mm), cortes en paquete y perfiles estructurales pesados, con un corte frío y mínimo desperdicio de viruta. Las <strong>sierras de disco</strong> (o tronzadoras) son la mejor elección cuando se precisa velocidad punta en tubos y perfiles delgados o medios, logrando un acabado superficial casi pulido y tolerancias muy estrictas.
+                <div x-show="active === 1" x-collapse class="text-xs text-gray-600 font-light leading-relaxed pt-3 border-t border-gray-100 mt-3">
+                    Las <strong>sierras de cinta</strong> son la elección idónea para cortes macizos de gran diámetro, perfiles estructurales pesados y paquetes de barras con un corte frío y mínimo desperdicio. Las <strong>sierras de disco</strong> destacan por su velocidad y acabado pulido en tubos y perfiles delgados.
                 </div>
             </div>
 
-            <!-- FAQ 2 -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs">
-                <button type="button" @click="active = active === 2 ? null : 2" class="w-full p-5 text-left font-bold text-sm text-gray-900 flex items-center justify-between hover:bg-gray-50">
-                    <span>¿Qué tipo de garantía y revisión tienen las máquinas de ocasión?</span>
-                    <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{ 'rotate-180': active === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="apple-card-3d bg-white overflow-hidden p-6 transition-all">
+                <button type="button" @click="active = active === 2 ? null : 2" class="w-full text-left font-bold text-sm text-gray-900 flex items-center justify-between">
+                    <span>¿Qué garantía ofrecen las máquinas de ocasión?</span>
+                    <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{ 'rotate-180 text-blue-600': active === 2 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>
-                <div x-show="active === 2" x-collapse class="px-5 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
-                    Toda máquina usada que entra en nuestras instalaciones pasa por un protocolo de verificación de más de 30 puntos: rectificado de bancadas, sustitución de rodamientos de guiado, revisión de bomba refrigerante, prueba de presión de mordaza y comprobación de componentes eléctricos. Ofrecemos garantía de taller y la posibilidad de ver la máquina funcionando antes de la compra.
+                <div x-show="active === 2" x-collapse class="text-xs text-gray-600 font-light leading-relaxed pt-3 border-t border-gray-100 mt-3">
+                    Cada máquina usada se somete a un protocolo de verificación de más de 30 puntos en nuestro taller (revisión de tolerancias, rectificado de bancadas, bombas y mandos eléctricos). Se entregan garantizadas y con opción de prueba presencial previa.
                 </div>
             </div>
 
-            <!-- FAQ 3 -->
-            <div class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-xs">
-                <button type="button" @click="active = active === 3 ? null : 3" class="w-full p-5 text-left font-bold text-sm text-gray-900 flex items-center justify-between hover:bg-gray-50">
-                    <span>¿Ofrecéis suministro continuado de hojas de sierra de cinta?</span>
-                    <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{ 'rotate-180': active === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="apple-card-3d bg-white overflow-hidden p-6 transition-all">
+                <button type="button" @click="active = active === 3 ? null : 3" class="w-full text-left font-bold text-sm text-gray-900 flex items-center justify-between">
+                    <span>¿Realizan envíos y puesta en marcha en toda España?</span>
+                    <svg class="w-5 h-5 text-gray-400 transform transition-transform" :class="{ 'rotate-180 text-blue-600': active === 3 }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                     </svg>
                 </button>
-                <div x-show="active === 3" x-collapse class="px-5 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
-                    Sí. Contamos con servicio de soldadura y suministro a medida de hojas de cinta bimetálicas M42, M51 y con pastillas de metal duro para aceros inoxidables, titanio e inconel. Nuestro equipo le asesora sobre el paso de diente (TPI) óptimo según el espesor de pared y macizo a cortar.
+                <div x-show="active === 3" x-collapse class="text-xs text-gray-600 font-light leading-relaxed pt-3 border-t border-gray-100 mt-3">
+                    Sí, coordinamos el transporte industrial con descarga y disponemos de técnicos de campo para la puesta en marcha, nivelación y formación técnica de sus operarios en toda la península.
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ─── FINAL CTA BANNER ───────────────────────────────────────────── -->
-<section class="py-16 bg-blue-600 text-white text-center">
-    <div class="container mx-auto px-4 max-w-3xl space-y-6">
-        <h2 class="text-3xl sm:text-4xl font-display font-black">
-            ¿Necesita una solución de corte a medida para su taller?
+<!-- ─── FINAL CTA: APPLE LUXURY MINIMALIST BANNER ───────────────────── -->
+<section class="py-20 bg-apple-dark text-white text-center relative overflow-hidden">
+    <div class="container mx-auto px-4 max-w-2xl relative z-10 space-y-6">
+        <h2 class="text-3xl sm:text-5xl font-display font-black tracking-tight text-white">
+            Eleve la precisión de su taller.
         </h2>
-        <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
-            Nuestros ingenieros analizan su producción, tipo de material y volúmenes para recomendarle la máquina más rentable. Sin compromiso.
+        <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed">
+            Consulte con nuestros ingenieros de corte para recibir una propuesta técnica a medida de sus piezas y materiales.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button type="button" 
                     @click="$dispatch('open-quote-modal')"
-                    class="px-8 py-3.5 bg-gray-950 hover:bg-gray-900 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-colors cursor-pointer">
-                Solicitar Estudio / Presupuesto
+                    class="apple-btn-primary px-8 py-4 text-white text-xs uppercase tracking-wider font-bold shadow-xl">
+                Solicitar Estudio Técnico
             </button>
-            <a href="tel:+34938498456" class="px-8 py-3.5 bg-white hover:bg-blue-50 text-blue-700 font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-colors">
-                Llamar Directamente: +34 93 849 84 56
+            <a href="tel:+34938498456" class="apple-btn-secondary px-8 py-4 text-white text-xs uppercase tracking-wider font-bold">
+                Llamar: +34 93 849 84 56
             </a>
         </div>
     </div>
